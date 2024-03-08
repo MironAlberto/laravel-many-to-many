@@ -85,8 +85,8 @@ class ProjectController extends Controller
 
         $project->update($validData);
 
-        if (isset($projectData['technologies'])) {
-            $project->technologies()->sync($projectData['technologies']);
+        if (isset($validData['technologies'])) {
+            $project->technologies()->sync($validData['technologies']);
         }
         else {
             $project->technologies()->detach();

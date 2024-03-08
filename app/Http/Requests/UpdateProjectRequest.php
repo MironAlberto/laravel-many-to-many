@@ -30,7 +30,7 @@ class UpdateProjectRequest extends FormRequest
             /* 'slug' => 'required|unique:users', */
             'content' => 'nullable|max:4000',
             'type_id' => 'nullable|exists:types,id',
-            'technology' => 'nullable|array|exists:technologies,id'
+            'technologies' => 'nullable|array|exists:technologies,id'
         ];
     }
 
