@@ -61,6 +61,26 @@
                 @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="technologies" class="form-label fw-bolder">Technology</label>
+                <div>
+                    @foreach ($technologies as $technology)
+
+                        <div class="form-check form-check-inline">
+                            <input @error('technology') is-invalid @enderror {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }} type="checkbox" name="technologies[]" id="technology-{{ $technology->id }}" class="form-check-input" value="{{ $technology->id }}">
+                            <label for="technology-{{ $technology->id }}" class="form-check-label">
+                                {{ $technology->title }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                @error('technology')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
             <div>
                 <button type="submit" class="btn btn-dark w-100 fw-bolder">
                     + ADD

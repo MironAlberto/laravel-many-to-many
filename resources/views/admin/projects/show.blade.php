@@ -58,6 +58,19 @@
                         @endif
                     </h2>
 
+                    <h2 class="mb-5">
+                        <div>
+                            TECHNOLOGIES:
+                        </div>
+                        @forelse ($project->technologies as $technology)
+                        <a href="{{ route('admin.technologies.show', ['technology' => $technology->id]) }}" class="badge m-1 text-bg-light text-decoration-none">
+                            {{ $technology->title }}
+                        </a>
+                        @empty
+                            Not Specified
+                        @endforelse
+                    </h2>
+
                     <h3 class="mb-5">
                         <div>
                             CONTENT:

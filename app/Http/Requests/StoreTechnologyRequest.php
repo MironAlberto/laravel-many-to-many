@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 // Helpers
 use Illuminate\Support\Facades\Auth;
 
-class StoreTypeRequest extends FormRequest
+class StoreTechnologyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

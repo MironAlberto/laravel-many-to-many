@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 // Models 
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Technology;
 
 // Helpers 
 use Illuminate\Support\Str;
@@ -31,7 +32,6 @@ class ProjectSeeder extends Seeder
 
             $project->url = fake()->url();
             $project->title = fake()->sentence();
-            // $project->slug = Str::slug($project->title);
             $project->content = fake()->paragraph();
             $project->type_id = $randomType->id;
             $project->save();
