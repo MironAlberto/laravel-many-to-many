@@ -3,12 +3,12 @@
 @section('page-title', 'New Project')
 
 @section('main-content')
-<h1>
+<h1 class="text-white">
     Create your new Project!
 </h1>
 
 <div class="row">
-    <div class="col py-4">
+    <div class="col py-4 text-white">
         <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
 
@@ -44,7 +44,7 @@
 
             <div class="mb-3">
                 <label for="type_id" class="form-label fw-bolder">Type</label>
-                <select name="type_id" id="type_id" class="form-select" @error('type_id') is-invalid @enderror>
+                <select name="type_id" id="type_id" class="form-select text-white" @error('type_id') is-invalid @enderror>
                     <option value="" {{ old('type_id') == null ? 'selected' : '' }}>
                         Select your Programming Type...
                     </option>
@@ -82,7 +82,7 @@
             </div>
 
             <div>
-                <button type="submit" class="btn btn-dark w-100 fw-bolder">
+                <button type="submit" class="btn my-badge text-white w-100 fw-bolder">
                     + ADD
                 </button>
             </div>

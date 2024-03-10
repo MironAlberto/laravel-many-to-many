@@ -12,7 +12,7 @@
         
         @foreach ($projects as $project)
             <div class="col-4">
-                <div class="card my-card mb-4 bg-dark text-center">
+                <div class="card my-card mb-4 my-badge text-center">
                     <div class="card-body text-light">
                         <h4>
                             {{ $project->title }}

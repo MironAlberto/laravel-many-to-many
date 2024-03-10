@@ -3,7 +3,7 @@
 @section('page-title', 'Login')
 
 @section('main-content')
-    <div class="text-center">
+    <div class="text-center my-background-table">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <div class="mb-0">
@@ -51,9 +51,9 @@
                     Log in
                 </button>
 
-                <div class="mt-3">
+                <div class="mt-3 pb-3">
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}">
+                        <a href="{{ route('password.request') }}" class="link-light">
                             {{ __('Forgot your password?') }}
                         </a>
                     @endif

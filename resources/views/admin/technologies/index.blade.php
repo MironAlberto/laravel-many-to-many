@@ -5,14 +5,14 @@
 @section('main-content')
     <div class="row">
         <div class="col">
-            <div class="card text-bg-dark">
-                <div class="card-body">
-                    <h1 class="text-center text-light">
+            <div class="card my-background border-0">
+                <div class="card-body my-background">
+                    <h1 class="text-center text-light pb-4">
                         My Technologies
                     </h1>
 
                     <div>
-                        <table class="table table-dark">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -26,12 +26,12 @@
                                         <th scope="row">{{ $technology->id }}</th>
                                         <td>{{ $technology->title }}</td>
                                         <td>
-                                            <a href="{{ route('admin.technologies.show', ['technology' => $technology->id]) }}" class="btn btn-xs btn-light text-dark fw-bolder w-100">
+                                            <a href="{{ route('admin.technologies.show', ['technology' => $technology->id]) }}" class="btn btn-xs my-badge text-white fw-bolder w-100">
                                                 Show
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.technologies.edit', ['technology' => $technology->id]) }}" class="btn btn-secondary fw-bolder text-white w-100">
+                                            <a href="{{ route('admin.technologies.edit', ['technology' => $technology->id]) }}" class="btn my-badge text-white fw-bolder w-100">
                                                 Update
                                             </a>
                                         </td>

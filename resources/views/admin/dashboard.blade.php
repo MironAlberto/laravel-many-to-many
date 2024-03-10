@@ -5,7 +5,7 @@
 @section('main-content')
     <div class="row">
         <div class="col">
-            <div class="card bg-dark">
+            <div class="card my-badge">
                 <div class="card-body text-center">
                     <h1 class="text-white mb-5">
                         You are logged in!

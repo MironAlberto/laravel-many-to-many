@@ -4,13 +4,13 @@
 
 @section('main-content')
     <div class="d-flex justify-content-end pt-3 mb-3">
-        <button type="button" class="btn btn-dark fw-bolder" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn my-badge text-white fw-bolder" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Delete the Project
         </button>
         
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content bg-dark">
+                <div class="modal-content my-modal">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5 text-white" id="exampleModalLabel"><span class="text-danger">Deleting</span> the Project {{ $project->title }}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <div class="card bg-dark">
+            <div class="card my-badge">
                 <div class="card-body text-secondary text-center">
                     <h1 class="text-light mb-5">
                         {{ $project->title }}

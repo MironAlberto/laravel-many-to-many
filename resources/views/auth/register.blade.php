@@ -3,7 +3,7 @@
 @section('page-title', 'Register')
 
 @section('main-content')
-    <div class="text-center">
+    <div class="text-center my-background-table">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <div class="mb-0">
@@ -63,8 +63,8 @@
                     Register
                 </button>
 
-                <div class="mt-3">
-                    <a href="{{ route('login') }}">
+                <div class="mt-3 pb-3">
+                    <a href="{{ route('login') }}" class="link-light">
                         {{ __('Already registered?') }}
                     </a>
                 </div>
