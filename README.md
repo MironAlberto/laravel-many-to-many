@@ -100,7 +100,7 @@ Buon lavoro e buon divertimento! -->
 
 --------------------------------------------------------------------------------------------
 
-Ciao ragazzi,
+<!-- Ciao ragazzi,
 continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo e aggiungiamo una nuova entità Technology. Questa entità rappresenta le tecnologie utilizzate ed è in relazione many to many con i progetti.
 
 I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che abbiamo fatto nelle lezioni dei giorni scorsi:
@@ -117,6 +117,13 @@ creare il seeder per il model Technology.
 
 Bonus 2:
 aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
+Buon lavoro e buon divertimento! -->
+
+--------------------------------------------------------------------------------------------
+
+Ciao ragazzi,
+continuiamo a lavorare nella repo dei giorni scorsi e aggiungiamo un'immagine ai nostri progetti.
+Ricordiamoci di creare il symlink con l'apposito comando artisan e di aggiungere l'attributo enctype="multipart/form-data" ai form di creazione e di modifica!
 Buon lavoro e buon divertimento!
 
 
