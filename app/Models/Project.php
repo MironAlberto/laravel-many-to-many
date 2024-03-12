@@ -13,7 +13,8 @@ class Project extends Model
         'url',
         'title',
         'content',
-        'type_id'
+        'type_id',
+        'cover_image'
     ];
 
     // Relationships

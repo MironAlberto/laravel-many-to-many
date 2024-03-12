@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col py-4 text-white">
         {{-- reindirizzamento ad update, ricordarsi di usare method PUT --}}
-        <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST"> 
+        <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="POST" enctype="multipart/form-data"> 
             @csrf
 
             {{-- grazie a blade, utilizzo il method PUT - altrimenti ritornerei a store --}}
@@ -49,6 +49,35 @@
                         {{ $message }}
                     </div>
                 @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="cover_image" class="form-label">
+                    Cover Image
+                </label>
+                <input value="{{ old('cover_image') }}" type="file" class="form-control" @error('cover_image') is-invalid @enderror id="cover_image" name="cover_image" placeholder="Add your Cover Image..." maxlength="2048">
+                @error('cover_image')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
+
+                @if ($project->cover_image != null)
+                    <div>
+                        <h3>
+                            Current Cover Image:
+                        </h3>
+                        <div class="img-box">
+                            <img src="{{ asset( 'storage/'. $project->cover_image) }}" alt="{{ $project->title }}">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="1" id="delete_cover_image" name="delete_cover_image">
+                            <label class="form-check-label" for="delete_cover_image">
+                                Delete Current Cover Image
+                            </label>
+                        </div>
+                    </div>
+                @endif
             </div>
 
             <div class="mb-3">

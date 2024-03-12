@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 // Form Requests 
 use App\Http\Requests\StoreProjectRequest;
@@ -45,14 +46,20 @@ class ProjectController extends Controller
     {
         $validData = $request->validated();
 
-        $project = Project::create($validData);
-
         if (isset($validData['technologies'])) {
             foreach ($validData['technologies'] as $singleTechnologyId) {
                 $project->technologies()->attach($singleTechnologyId);
             }
         }
 
+        $coverImagePath = null;
+        if(isset($validData['cover_image'])){
+            $coverImagePath = Storage::disk('public')->put('images', $validData['cover_image']);
+        }
+
+        $validData['cover_image'] = $coverImagePath;
+
+        $project = Project::create($validData);
         return redirect()->route('admin.projects.show', compact('project'));
     }
 
@@ -83,14 +90,30 @@ class ProjectController extends Controller
     {
         $validData = $request->validated();
 
-        $project->update($validData);
-
         if (isset($validData['technologies'])) {
             $project->technologies()->sync($validData['technologies']);
         }
         else {
             $project->technologies()->detach();
         }
+
+        $coverImagePath = $project->cover_image;
+        if (isset($validData['cover_image'])){
+            if ($project->cover_image != null){
+                Storage::disk('public')->delete($project->cover_image);
+            }
+
+            $coverImagePath = Storage::disk('public')->put('images', $validData['cover_image']);
+        }
+        else if (isset($validData['delete_cover_image'])){
+            Storage::disk('public')->delete($project->cover_image);
+
+            $coverImagePath = null;
+        }
+
+        $validData['cover_image'] = $coverImagePath;
+
+        $project->update($validData);
 
         return redirect()->route('admin.projects.show', compact('project'));
     }
@@ -100,6 +123,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->cover_image != null){
+            Storage::disk('public')->delete($project->cover_image);
+        }
+
         $project->delete();
 
         return redirect()->route('admin.projects.index');

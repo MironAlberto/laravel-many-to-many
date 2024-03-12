@@ -47,6 +47,12 @@
                         {{ $project->title }}
                     </h1>
 
+                    @if ($project->cover_image != null)
+                        <div class="img-box mx-auto mb-4">
+                            <img src="{{ asset('storage/'. $project->cover_image) }}" alt="{{ $project->title }}">
+                        </div>
+                    @endif
+
                     <h2 class="mb-5">
                         <div>
                             USED TYPE:

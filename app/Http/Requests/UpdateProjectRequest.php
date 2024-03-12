@@ -30,7 +30,9 @@ class UpdateProjectRequest extends FormRequest
             /* 'slug' => 'required|unique:users', */
             'content' => 'nullable|max:4000',
             'type_id' => 'nullable|exists:types,id',
-            'technologies' => 'nullable|array|exists:technologies,id'
+            'technologies' => 'nullable|array|exists:technologies,id',
+            'cover_image' => 'nullable|image',
+            'delete_cover_image' => 'nullable|boolean'
         ];
     }
 
@@ -43,7 +45,8 @@ class UpdateProjectRequest extends FormRequest
             'title.max' => 'Il titolo deve avere un massimo di 255 caratteri',
             /* 'slug.required' => 'Lo slug è obbligatorio',
             'slug.unique' => 'Lo slug è unico', */
-            'content.max' => 'Il content deve avere un massimo di 4000 caratteri'
+            'content.max' => 'Il content deve avere un massimo di 4000 caratteri',
+            'cover_image.image' => 'Il file deve essere una immagine'
         ];
     }
 }
