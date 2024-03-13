@@ -46,12 +46,6 @@ class ProjectController extends Controller
     {
         $validData = $request->validated();
 
-        if (isset($validData['technologies'])) {
-            foreach ($validData['technologies'] as $singleTechnologyId) {
-                $project->technologies()->attach($singleTechnologyId);
-            }
-        }
-
         $coverImagePath = null;
         if(isset($validData['cover_image'])){
             $coverImagePath = Storage::disk('public')->put('images', $validData['cover_image']);
@@ -60,6 +54,13 @@ class ProjectController extends Controller
         $validData['cover_image'] = $coverImagePath;
 
         $project = Project::create($validData);
+
+        if (isset($validData['technologies'])) {
+            foreach ($validData['technologies'] as $singleTechnologyId) {
+                $project->technologies()->attach($singleTechnologyId);
+            }
+        }
+
         return redirect()->route('admin.projects.show', compact('project'));
     }
 

@@ -55,7 +55,7 @@
                 <label for="cover_image" class="form-label">
                     Cover Image
                 </label>
-                <input value="{{ old('cover_image') }}" type="file" class="form-control" @error('cover_image') is-invalid @enderror id="cover_image" name="cover_image" placeholder="Add your Cover Image..." maxlength="2048">
+                <input value="{{ old('cover_image') }}" type="file" class="form-control text-white" @error('cover_image') is-invalid @enderror id="cover_image" name="cover_image" placeholder="Add your Cover Image..." maxlength="2048">
                 @error('cover_image')
                     <div class="alert alert-danger">
                         {{ $message }}
